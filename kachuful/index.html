@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kachuful Score Counter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Kachuful Score Counter</h1>
+    </header>
+    <main id="game">
+        <div id="player-management">
+            <input type="text" id="player-name" placeholder="Enter player name">
+            <button onclick="addPlayer()">Add Player</button>
+        </div>
+        <div id="game-area">
+            <table id="score-table">
+                <thead>
+                    <tr id="player-header">
+                        <th>Round</th>
+                    </tr>
+                </thead>
+                <tbody id="score-body"></tbody>
+                <tfoot id="total-scores">
+                    <tr>
+                        <td>Total</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div id="ranking">
+                <h2>Player Rankings</h2>
+                <ul id="rank-list"></ul>
+            </div>
+        </div>
+        <button id="add-round-btn" onclick="addRound()">Add Round</button>
+        <button id="end-game-btn" onclick="endGame()">End Game</button>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

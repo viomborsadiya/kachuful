@@ -1,0 +1,221 @@
+/* Global styles for full-page layout */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    /* Light background color */
+    font-family: Arial, sans-serif;
+    color: #000000;
+    /* Black text color */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Hide the scrollbar globally */
+}
+
+/* Header styling */
+header {
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    /* Light header background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    /* Ensure header stays on top */
+    z-index: 1000;
+    /* Ensure header stays on top of other elements */
+}
+
+/* Main section for the game */
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    /* Allow vertical scrolling */
+    margin-right: 320px;
+    /* Space for the fixed ranking section */
+}
+
+/* Player management inputs and buttons */
+#player-management {
+    margin-bottom: 20px;
+}
+
+#player-name {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    /* Light border */
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    /* Blue button color */
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+/* Game area containing table and ranking */
+#game-area {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Score table styling */
+table {
+    width: 60%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    /* Light border for table cells */
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #e0e0e0;
+    /* Light grey header */
+    color: #000000;
+    /* Black text */
+}
+
+tfoot td {
+    font-weight: bold;
+    background-color: #d0d0d0;
+    /* Light grey footer */
+}
+
+/* Ranking section styling */
+#ranking {
+    width: 300px;
+    /* Adjust width as needed */
+    padding: 10px;
+    background-color: #ffffff;
+    /* White background for ranking */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    /* Make the ranking list fixed */
+    top: 180px;
+    /* Space from the top */
+    right: 20px;
+    /* Space from the right edge of the page */
+    max-height: calc(100vh - 100px);
+    /* Limit height to fit within viewport */
+    overflow-y: auto;
+    /* Add scroll if content exceeds max height */
+}
+
+/* Ranking section heading */
+#ranking h2 {
+    text-align: center;
+    color: #007bff;
+    /* Blue color for headings */
+}
+
+/* Ranking list styling */
+#rank-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#rank-list li {
+    padding: 8px;
+    background-color: #f8f8f8;
+    /* Light grey background */
+    margin-bottom: 5px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Add Round button styling */
+#add-round-btn {
+    margin-top: 20px;
+    align-self: center;
+}
+
+/* End Game button styling */
+#end-game-btn {
+    margin-top: 40px;
+    /* Adds space between the buttons */
+}
+
+/* Bid input styling */
+.bid-input {
+    border: none;
+    background: none;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    /* Adjust the font size as needed */
+    padding: 0;
+    box-shadow: none;
+    /* Remove shadow */
+}
+
+/* Remove border and shadow on focus */
+.bid-input:focus {
+    outline: none;
+}
+
+/* Symbol styling */
+.spade-symbol {
+    font-size: 1.5em;
+    /* Increase size as needed */
+    color: #000000;
+    /* Black color for spade */
+}
+
+.diamond-symbol {
+    font-size: 1.5em;
+    /* Increase size as needed */
+    color: #ff0000;
+    /* Red color for diamond */
+}
+
+.club-symbol {
+    font-size: 1.5em;
+    /* Increase size as needed */
+    color: #000000;
+    /* Black color for club */
+}
+
+.heart-symbol {
+    font-size: 1.5em;
+    /* Increase size as needed */
+    color: #ff0000;
+    /* Red color for heart */
+}
+
+/* Hide scrollbars in webkit-based browsers */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbars in Firefox */
+html {
+    scrollbar-width: none;
+}
