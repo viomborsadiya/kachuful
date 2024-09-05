@@ -23,7 +23,6 @@ header {
     /* Light header background */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: relative;
-    /* Ensure header stays on top */
     z-index: 1000;
     /* Ensure header stays on top of other elements */
 }
@@ -44,6 +43,10 @@ main {
 /* Player management inputs and buttons */
 #player-management {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* Adjust gap for responsive design */
 }
 
 #player-name {
@@ -52,6 +55,8 @@ main {
     /* Light border */
     border-radius: 4px;
     margin-right: 10px;
+    flex: 1;
+    /* Allow input to grow with screen size */
 }
 
 button {
@@ -73,6 +78,8 @@ button:hover {
 /* Game area containing table and ranking */
 #game-area {
     display: flex;
+    flex-direction: column;
+    /* Stack vertically on smaller screens */
     gap: 20px;
     align-items: flex-start;
     justify-content: center;
@@ -81,7 +88,10 @@ button:hover {
 
 /* Score table styling */
 table {
-    width: 60%;
+    width: 100%;
+    /* Adjust to full width for responsiveness */
+    max-width: 800px;
+    /* Limit the maximum width */
     border-collapse: collapse;
 }
 
@@ -91,6 +101,8 @@ td {
     /* Light border for table cells */
     padding: 10px;
     text-align: center;
+    font-size: 0.9em;
+    /* Slightly smaller text for better scaling */
 }
 
 th {
@@ -108,8 +120,9 @@ tfoot td {
 
 /* Ranking section styling */
 #ranking {
-    width: 300px;
-    /* Adjust width as needed */
+    width: 100%;
+    max-width: 300px;
+    /* Limit width to prevent overflow */
     padding: 10px;
     background-color: #ffffff;
     /* White background for ranking */
@@ -182,32 +195,20 @@ tfoot td {
 }
 
 /* Symbol styling */
-.spade-symbol {
-    font-size: 1.5em;
-    /* Increase size as needed */
-    color: #000000;
-    /* Black color for spade */
-}
-
-.diamond-symbol {
-    font-size: 1.5em;
-    /* Increase size as needed */
-    color: #ff0000;
-    /* Red color for diamond */
-}
-
+.spade-symbol,
 .club-symbol {
     font-size: 1.5em;
     /* Increase size as needed */
     color: #000000;
-    /* Black color for club */
+    /* Black color for spade and club */
 }
 
+.diamond-symbol,
 .heart-symbol {
     font-size: 1.5em;
     /* Increase size as needed */
     color: #ff0000;
-    /* Red color for heart */
+    /* Red color for diamond and heart */
 }
 
 /* Hide scrollbars in webkit-based browsers */
@@ -218,4 +219,41 @@ tfoot td {
 /* Hide scrollbars in Firefox */
 html {
     scrollbar-width: none;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    #game-area {
+        flex-direction: column;
+        /* Stack table and ranking vertically */
+        align-items: center;
+    }
+
+    #ranking {
+        position: relative;
+        /* Make the ranking list part of the flow */
+        top: 0;
+        right: 0;
+        margin-top: 20px;
+        /* Add space above when stacked */
+        width: 100%;
+        /* Full width on smaller screens */
+        max-width: none;
+        /* Allow it to fill the available space */
+    }
+
+    table {
+        width: 100%;
+        /* Use full width on smaller screens */
+        max-width: 100%;
+        /* Remove width limit */
+    }
+
+    th,
+    td {
+        font-size: 0.8em;
+        /* Reduce text size for smaller screens */
+        padding: 8px;
+        /* Reduce padding to fit content */
+    }
 }
