@@ -17,36 +17,42 @@ html {
 
 /* Header styling */
 header {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     background-color: #ffffff;
     /* Light header background */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1000;
     /* Ensure header stays on top of other elements */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Main section for the game */
 main {
     flex: 1;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
     /* Allow vertical scrolling */
-    margin-right: 320px;
-    /* Space for the fixed ranking section */
+    margin: 0;
+    /* Remove margin for full-width content */
 }
 
 /* Player management inputs and buttons */
 #player-management {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     /* Adjust gap for responsive design */
+    width: 100%;
 }
 
 #player-name {
@@ -54,13 +60,14 @@ main {
     border: 1px solid #cccccc;
     /* Light border */
     border-radius: 4px;
-    margin-right: 10px;
     flex: 1;
     /* Allow input to grow with screen size */
+    min-width: 120px;
+    /* Ensure inputs are usable on small screens */
 }
 
 button {
-    padding: 10px 20px;
+    padding: 10px 15px;
     background-color: #007bff;
     /* Blue button color */
     border: none;
@@ -68,6 +75,9 @@ button {
     color: #ffffff;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 1rem;
+    flex-shrink: 0;
+    /* Prevent buttons from shrinking too small */
 }
 
 button:hover {
@@ -75,13 +85,13 @@ button:hover {
     /* Darker blue on hover */
 }
 
-/* Game area containing table and ranking */
+/* Game area containing table */
 #game-area {
     display: flex;
     flex-direction: column;
-    /* Stack vertically on smaller screens */
-    gap: 20px;
-    align-items: flex-start;
+    /* Stack vertically */
+    gap: 10px;
+    align-items: stretch;
     justify-content: center;
     width: 100%;
 }
@@ -90,8 +100,6 @@ button:hover {
 table {
     width: 100%;
     /* Adjust to full width for responsiveness */
-    max-width: 800px;
-    /* Limit the maximum width */
     border-collapse: collapse;
 }
 
@@ -99,7 +107,7 @@ th,
 td {
     border: 1px solid #dddddd;
     /* Light border for table cells */
-    padding: 10px;
+    padding: 8px;
     text-align: center;
     font-size: 0.9em;
     /* Slightly smaller text for better scaling */
@@ -128,12 +136,12 @@ tfoot td {
     /* White background for ranking */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    /* Make the ranking list fixed */
-    top: 180px;
-    /* Space from the top */
-    right: 20px;
-    /* Space from the right edge of the page */
+    position: relative;
+    /* Position relative for better control */
+    margin-top: 20px;
+    /* Space above */
+    margin-bottom: 10px;
+    /* Space below */
     max-height: calc(100vh - 100px);
     /* Limit height to fit within viewport */
     overflow-y: auto;
@@ -145,6 +153,8 @@ tfoot td {
     text-align: center;
     color: #007bff;
     /* Blue color for headings */
+    font-size: 1.2em;
+    /* Adjust size for better visibility */
 }
 
 /* Ranking list styling */
@@ -161,17 +171,19 @@ tfoot td {
     margin-bottom: 5px;
     border-radius: 4px;
     text-align: center;
+    font-size: 0.9em;
+    /* Smaller font for mobile */
 }
 
 /* Add Round button styling */
 #add-round-btn {
-    margin-top: 20px;
+    margin-top: 10px;
     align-self: center;
 }
 
 /* End Game button styling */
 #end-game-btn {
-    margin-top: 40px;
+    margin-top: 20px;
     /* Adds space between the buttons */
 }
 
@@ -182,8 +194,8 @@ tfoot td {
     text-align: center;
     width: 100%;
     height: 100%;
-    font-size: 1em;
-    /* Adjust the font size as needed */
+    font-size: 0.9em;
+    /* Adjust the font size for mobile */
     padding: 0;
     box-shadow: none;
     /* Remove shadow */
@@ -221,39 +233,61 @@ html {
     scrollbar-width: none;
 }
 
-/* Responsive design adjustments */
-@media (max-width: 768px) {
+/* Responsive adjustments for tablets and larger mobile devices */
+@media (min-width: 480px) {
     #game-area {
-        flex-direction: column;
-        /* Stack table and ranking vertically */
-        align-items: center;
+        flex-direction: row;
+        /* Use row direction on larger mobile devices */
+        align-items: flex-start;
     }
 
     #ranking {
         position: relative;
-        /* Make the ranking list part of the flow */
-        top: 0;
-        right: 0;
-        margin-top: 20px;
-        /* Add space above when stacked */
-        width: 100%;
-        /* Full width on smaller screens */
-        max-width: none;
-        /* Allow it to fill the available space */
+        /* Position relative for better control */
+        top: auto;
+        /* Reset top position */
+        right: auto;
+        /* Reset right position */
+        max-width: 250px;
+        /* Slightly smaller width for larger devices */
+    }
+}
+
+/* Additional adjustments for small mobile screens */
+@media (max-width: 480px) {
+    header {
+        padding: 5px 10px;
+        /* Reduced padding for smaller screens */
+        flex-direction: column;
+        /* Stack header elements vertically */
     }
 
-    table {
-        width: 100%;
-        /* Use full width on smaller screens */
-        max-width: 100%;
-        /* Remove width limit */
+    #player-management {
+        flex-direction: column;
+        /* Stack inputs and buttons */
+        align-items: stretch;
+        gap: 5px;
     }
 
     th,
     td {
-        font-size: 0.8em;
-        /* Reduce text size for smaller screens */
-        padding: 8px;
-        /* Reduce padding to fit content */
+        font-size: 0.75em;
+        /* Further reduce text size */
+        padding: 6px;
+        /* Smaller padding for better fit */
+    }
+
+    button {
+        padding: 8px 10px;
+        /* Smaller button padding for mobile */
+        font-size: 0.9rem;
+        /* Smaller font size */
+    }
+
+    #ranking {
+        position: relative;
+        /* Ensure it stays within flow */
+        margin-top: 10px;
+        /* Space above for visibility */
     }
 }
